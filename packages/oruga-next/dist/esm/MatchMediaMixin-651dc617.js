@@ -29,13 +29,13 @@ var MatchMediaMixin = defineComponent({
                 width = getValueByPath(config, `${this.$options.configField}.mobileBreakpoint`, defaultWidth);
             }
             this.$matchMediaRef = window.matchMedia(`(max-width: ${width})`);
-            this.isMatchMedia = this.$matchMediaRef.matches;
-            this.$matchMediaRef.addListener(this.onMatchMedia, false);
+            this.isMatchMedia = this.$matchMediaRef?.matches;
+            this.$matchMediaRef?.addListener(this.onMatchMedia, false);
         }
     },
     beforeUnmount() {
         if (typeof window !== 'undefined') {
-            this.$matchMediaRef.removeListener(this.checkMatchMedia);
+            this.$matchMediaRef?.removeListener(this.checkMatchMedia);
         }
     }
 });
